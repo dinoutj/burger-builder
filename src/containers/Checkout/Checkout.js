@@ -39,6 +39,7 @@ class Checkout extends Component {
             <div>
                 <CheckoutSummary
                     ingredients={this.state.ingredients}
+                    price={this.state.price}
                     checkoutCancelled={this.checkoutCancelledHandler}
                     checkoutContinued={this.checkoutContinuedHandler} />
                 <Route

@@ -7,19 +7,23 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 
 class ContactData extends Component {
     state = {
-        name: '',
-        email: '',
-        address: {
-            street: '',
-            postalCode: ''
-        }
+        customer: {
+            name: '',
+            address: {
+                street: '',
+                zipCode: '',
+                country: ''
+            },
+            email: ''
+        },
+        deliveryMethod: ''
     }
 
     orderHandler = (event) => {
         event.preventDefault();
         const order = {
-            ingredients: this.state.ingredients,
-            price: this.state.totalPrice,
+            ingredients: this.props.ingredients,
+            price: this.props.price,
             customer: {
                 name: 'Dino',
                 address: {

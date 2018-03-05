@@ -2,10 +2,23 @@ import React from 'react';
 import classes from './Order.css'
 
 const order = (props) => {
+    const ingredients = [];
+
+    for (let ingredientName in props.ingredients) {
+        ingredients.push({
+            name: ingredientName,
+            amount: props.ingredients[ingredientName]
+        });
+    }
+
+    const ingredientOutput = ingredients.map(ig => {
+        return <span> {ig.name} ({ig.amount})</span>;
+    });
+
     return (
         <div className={classes.Order}>
-            <p>Ingredients: Salad ()</p>
-            <p>Price: <strong>$5.45</strong></p>
+            <p>Ingredients: {ingredientOutput}</p>
+            <p>Price: <strong>${Number.parseFloat(props.price).toFixed(2)}</strong></p>
         </div>
     );
 }
